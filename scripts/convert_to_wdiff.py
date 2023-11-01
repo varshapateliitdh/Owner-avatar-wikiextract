@@ -22,9 +22,10 @@ def pairwise_sent(file):
         if prev is None:
             prev = line
         else:
-            yield prev, line
+            # Check if both previous and current lines are not the same
+            if prev != line:
+                yield prev, line
             prev = None
-
 
 
 def wdiff(err_toks, cor_toks):
